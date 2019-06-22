@@ -15,14 +15,14 @@ public class WeatherDay {
     }
 
     public Integer getMaxTemp() {
-        Collections.max(this.temps);
+        return Collections.max(this.temps);
     }
 
     public Integer getMinTemp() {
         return temps.indexOf(Collections.min(temps));
     }
 
-    private double getAvgTemp() {
+    private Double getAvgTemp() {
         return (double) temps.stream().mapToInt(Integer::intValue).sum()  /24;
     }
 
