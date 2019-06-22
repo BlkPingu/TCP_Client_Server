@@ -1,5 +1,8 @@
 package Objects;
 
+import depr.Cargo;
+import depr.Hazard;
+
 import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;

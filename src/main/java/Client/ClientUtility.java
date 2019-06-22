@@ -1,13 +1,11 @@
 package Client;
 
-import Objects.Cargo;
-import Objects.Hazard;
+import depr.Cargo;
+import depr.Hazard;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 

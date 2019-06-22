@@ -1,5 +1,8 @@
 package Objects;
 
+import depr.Cargo;
+import depr.Hazard;
+import depr.Warehouse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
