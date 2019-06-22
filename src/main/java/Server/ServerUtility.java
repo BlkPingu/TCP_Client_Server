@@ -1,12 +1,11 @@
 package Server;
 
-import Objects.Cargo;
-import Objects.Warehouse;
+import depr.Cargo;
+import depr.Warehouse;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 
 public class ServerUtility {
     static void add(ObjectOutputStream toClient, ObjectInputStream fromClient, Warehouse warehouse) throws IOException, ClassNotFoundException {

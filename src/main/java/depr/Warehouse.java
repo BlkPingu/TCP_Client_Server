@@ -1,4 +1,4 @@
-package Objects;
+package depr;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -15,8 +15,6 @@ public class Warehouse {
             return false;
         }else return true;
     }
-
-
 
     public boolean addSingleCargo(Cargo cargo){
         if(cargo != null){

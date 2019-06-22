@@ -1,7 +1,6 @@
-package Objects;
+package depr;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Cargo implements Serializable {

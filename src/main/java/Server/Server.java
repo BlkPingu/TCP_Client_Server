@@ -1,6 +1,6 @@
 package Server;
 // File Name GreetingServer.java
-import Objects.Warehouse;
+import depr.Warehouse;
 
 import java.net.*;
 import java.io.*;
