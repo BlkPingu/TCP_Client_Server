@@ -1,13 +1,23 @@
 package Server;
 
+import Objects.WeatherDay;
+import com.opencsv.CSVReader;
 import depr.Cargo;
 import depr.Warehouse;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Reader;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServerUtility {
+
+
+
+
     static void add(ObjectOutputStream toClient, ObjectInputStream fromClient, Warehouse warehouse) throws IOException, ClassNotFoundException {
         System.out.println("Server | command: add");
         Cargo newCargo = (Cargo) fromClient.readObject();
@@ -35,4 +45,12 @@ public class ServerUtility {
             toClient.flush();
         }
     }
+
+    public static WeatherDay readCSV(SimpleDateFormat date){
+        List<Integer> csvData = ReadCSV.readTempsByDate(date);
+        return new WeatherDay(date, csvData);
+    }
+
+
+
 }

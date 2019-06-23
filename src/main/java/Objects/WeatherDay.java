@@ -1,15 +1,15 @@
 package Objects;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 public class WeatherDay {
-    private LocalDateTime date;
+    private SimpleDateFormat date;
     private List<Integer> temps;
 
-    public WeatherDay(LocalDateTime date, List<Integer> temps) {
+    public WeatherDay(SimpleDateFormat date, List<Integer> temps) {
         this.temps = temps;
         this.date = date;
     }
