@@ -1,7 +1,4 @@
 package Server;
-// File Name GreetingServer.java
-import depr.Warehouse;
-
 import java.net.*;
 import java.io.*;
 
@@ -11,11 +8,9 @@ public class Server extends Thread {
         ServerSocket serverSocket;
         ObjectOutputStream toClient;
         ObjectInputStream fromClient;
-        Warehouse warehouse;
 
 
         try {
-            warehouse = new Warehouse();
             serverSocket = new ServerSocket(serverPort);
             System.out.println("Waiting for Client");
 
@@ -28,12 +23,7 @@ public class Server extends Thread {
                 int code = (Integer) fromClient.readObject();
                 switch (code) {
                     case 0:
-                        //add
-                        ServerUtility.add(toClient, fromClient, warehouse);
-                        break;
-                    case 1:
-                        //remove
-                        ServerUtility.remove(toClient, fromClient, warehouse);
+                        ServerUtility.computeDate(toClient, fromClient);
                         break;
                     default:
                         System.out.println("Server | command: " + code);
