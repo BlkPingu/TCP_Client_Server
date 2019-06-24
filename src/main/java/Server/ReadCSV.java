@@ -23,7 +23,7 @@ public class ReadCSV {
 
         try {
 
-            // 2018-01-07
+            //2018-01-07
 
             String resource = "weatherData.csv";
             String fileName = ReadCSV.class.getClassLoader().getResource(resource).getFile();
