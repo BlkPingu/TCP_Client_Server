@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ServerUtility {
 
-    static void computeDate(ObjectOutputStream toClient, ObjectInputStream fromClient) throws IOException, ClassNotFoundException {
+    public static void computeDate(ObjectOutputStream toClient, ObjectInputStream fromClient) throws IOException, ClassNotFoundException {
         System.out.println("Server | command: computeDate");
         Date date = (Date) fromClient.readObject();
         WeatherDay result = readCSV(date);

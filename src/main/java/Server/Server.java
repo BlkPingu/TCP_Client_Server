@@ -1,4 +1,6 @@
 package Server;
+import Objects.WeatherThread;
+
 import java.net.*;
 import java.io.*;
 
@@ -20,10 +22,22 @@ public class Server extends Thread {
             fromClient = new ObjectInputStream(socket.getInputStream());
             while(true) {
 
+
+                //2018-01-07
+
                 int code = (Integer) fromClient.readObject();
+
                 switch (code) {
                     case 0:
-                        ServerUtility.computeDate(toClient, fromClient);
+
+
+                        //ServerUtility.computeDate(toClient, fromClient);
+                        Thread weatherThread = new WeatherThread(toClient, fromClient);
+
+                        weatherThread.start();
+
+                        sleep(10);
+
                         break;
                     default:
                         System.out.println("Server | command: " + code);
@@ -34,7 +48,7 @@ public class Server extends Thread {
                 }
             }
         }
-        catch(IOException | ClassNotFoundException e) {
+        catch(IOException | ClassNotFoundException | InterruptedException e) {
             e.printStackTrace();
             System.exit(1);
         }
