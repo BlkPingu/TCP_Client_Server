@@ -2,34 +2,44 @@ package Server;
 
 import com.opencsv.CSVReader;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import static com.apple.eio.FileManager.getResource;
 
 public class ReadCSV {
     //tutorial source: https://www.baeldung.com/opencsv
 
-    static String csvFile = "/Users/mkyong/csv/country3.csv";
 
     static CSVReader reader = null;
 
+    static List<Integer> readTempsByDate(Date date){
+        List<Integer> result = new ArrayList<>();
 
-
-    //add exception for missing date, date format may be not compatible with csv
-
-    public static List<Integer> readTempsByDate(SimpleDateFormat date){
-        List<Integer> result = null;
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
-            reader = new CSVReader(new FileReader(csvFile));
-            String[] line;
-            while ((line = reader.readNext()) != null && !line[0].equals(date.toString())) {
 
-                for(int i=1; i <= line.length;i++){
-                    result.add(Integer.parseInt(line[i]));
+            // 2018-01-07
+
+            String resource = "weatherData.csv";
+            String fileName = ReadCSV.class.getClassLoader().getResource(resource).getFile();
+            reader = new CSVReader(new FileReader(fileName));
+            String[] line;
+
+            reader.readNext();
+            while ((line = reader.readNext()) != null) {
+                if(line[0].equals(formatter.format(date))){
+                    for(int i=1; i < line.length;i++){
+
+                        //System.out.println("Cell: " + line[i]);
+                        result.add(Integer.parseInt(line[i]));
+                    }
                 }
+
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
