@@ -23,7 +23,7 @@ public class Server extends Thread {
             while(true) {
 
 
-                //2018-01-07
+                // 2018-01-07
 
                 int code = (Integer) fromClient.readObject();
 
@@ -36,6 +36,7 @@ public class Server extends Thread {
 
                         weatherThread.start();
 
+                        //gigantische Kruecke
                         sleep(10);
 
                         break;
